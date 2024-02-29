@@ -52,7 +52,7 @@ export const BUILDING_LISTINGS = [
 ];
 
 import { useState } from 'react';
-import { IconArrowNarrowRight } from '@tabler/icons-react';
+import { IconArrowNarrowRight, IconChevronRight, IconChevronLeft } from '@tabler/icons-react';
 
 import './index.scss';
 
@@ -74,7 +74,6 @@ export const HouseListings = () => {
         const currentIndex = houseListingArray?.length || 0;
         const nextSlice = BUILDING_LISTINGS.slice(currentIndex - 5, currentIndex);
         setIsLoadNext(false);
-
         setListings(nextSlice);
     };
 
@@ -82,6 +81,7 @@ export const HouseListings = () => {
         <>
             <div className="home_top-locations">
                 <HouseListingsHeader />
+
                 <div className="home_top-locations__list">
                     {listings.map((building, index) => {
                         return (
@@ -92,7 +92,7 @@ export const HouseListings = () => {
                                 <HouseListingDetailInfo building={building} />
                                 <img
                                     src={building?.imageUrl}
-                                    alt=""
+                                    alt={building?.name}
                                     className={`home_top-locations__list__${index}`}
                                 />
                                 <HouseListingDetaiButton building={building} />
@@ -101,9 +101,13 @@ export const HouseListings = () => {
                     })}
                 </div>
 
-                <div>
-                    <button onClick={handlePrevious}>Prev</button>
-                    <button onClick={handleNext}>Next</button>
+                <div className="home_top-locations__list-buttons">
+                    <button onClick={handlePrevious}>
+                        <IconChevronLeft />
+                    </button>
+                    <button onClick={handleNext}>
+                        <IconChevronRight />
+                    </button>
                 </div>
             </div>
         </>
@@ -112,20 +116,25 @@ export const HouseListings = () => {
 
 export const HouseListingsHeader = () => {
     return (
-        <div className="home_top-locations__header">
-            <header className="home_top-locations__header__heading">
-                Top listings in Kathmandu
-            </header>
+        <>
+            <div className="home_top-locations__header">
+                <header className="home_top-locations__header__heading">
+                    Top listings in Kathmandu
+                </header>
 
-            <p className="home_top-locations__header__message">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum
-            </p>
-        </div>
+                <p className="home_top-locations__header__message">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p>
+            </div>
+            <div className="home_top-locations__header__view-all-locations">
+                View All Locations <IconChevronRight color={'white'} size={16} />
+            </div>
+        </>
     );
 };
 
@@ -140,12 +149,14 @@ export const HouseListingDetailInfo = (prop: HouseListingDetail) => {
     const { building } = prop;
 
     return (
-        <div className="home_top-locations__list__listing_detail">
-            <p className="home_top-locations__list__listing_detail__projects">
-                {building?.projects} projects
-            </p>
-            <p className="home_top-locations__list__listing_detail__name">{building?.name}</p>
-        </div>
+        <>
+            <div className="home_top-locations__list__listing_detail">
+                <p className="home_top-locations__list__listing_detail__projects">
+                    {building?.projects} projects
+                </p>
+                <p className="home_top-locations__list__listing_detail__name">{building?.name}</p>
+            </div>
+        </>
     );
 };
 

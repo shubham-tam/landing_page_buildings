@@ -1,9 +1,15 @@
-@use "./colors" as *;
+@use './colors' as *;
 
-@mixin login_transparent_buttons {
-    background: transparent;
-    border: 0.1rem solid transparent;
-    font-size: 1.1rem;
-    text-decoration: underline;
-    color: $primary_light;
+@mixin cursor_pointer {
+    cursor: pointer;
+}
+
+@mixin font_karla($value) {
+    font-family: 'Karla', sans-serif;
+    font-weight: $value;
+}
+
+@mixin font_julius($value) {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: $value;
 }

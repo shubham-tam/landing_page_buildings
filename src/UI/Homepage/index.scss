@@ -8,20 +8,30 @@
 
     &__header {
         &__heading {
-            font-family: 'Julius Sans One', sans-serif;
             text-align: center;
             font-size: 28px;
-            font-weight: 400;
             line-height: 42px;
+            @include font_julius(400);
         }
         &__message {
-            font-family: 'Karla', sans-serif;
             text-align: center;
             font-size: 16px;
-            font-weight: 300;
             line-height: 24px;
             margin: 80px 255px;
             text-wrap: pretty;
+            @include font_karla(300);
+        }
+
+        &__view-all-locations {
+            margin-right: 108px;
+            margin-top: -50px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            @include cursor_pointer();
+            @include font_karla(600);
         }
     }
 
@@ -43,7 +53,7 @@
             position: absolute;
             top: 0;
             z-index: 99;
-            font-family: 'Karla', sans-serif;
+            @include font_karla(400);
             margin: 1.2rem;
 
             &__projects {
@@ -84,8 +94,9 @@
             left: 0;
             font-size: 17px;
             font-weight: 700;
-            font-family: 'Karla', sans-serif;
             margin: 1.2rem;
+            @include cursor_pointer();
+            @include font_karla(400);
         }
 
         &__button {
@@ -97,13 +108,28 @@
             height: 5rem;
             border: none;
             border-top-left-radius: 1.7rem;
+            @include cursor_pointer();
+        }
+    }
+
+    &__list-buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 108px;
+
+        button {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: none;
+            margin-left: 1.2rem;
         }
     }
 }
 
 .fade-right_to_left {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     animation: slideInRight 1s ease forwards;
 }
 
@@ -116,8 +142,8 @@
 
 .fade-left_to_right {
     opacity: 0;
-    transform: translateX(-100%);
-    animation: slideInLeft 1s ease forwards;
+    transform: translateX(100%);
+    animation: slideInLeft 2s ease forwards;
 }
 
 @keyframes slideInLeft {
