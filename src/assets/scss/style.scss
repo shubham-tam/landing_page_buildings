@@ -1,0 +1,13 @@
+@use 'abstracts' as *;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 0;
+    font-size: $font_size;
+}
+
+button,
+a {
+    cursor: pointer;
+}
