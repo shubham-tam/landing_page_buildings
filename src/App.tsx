@@ -1,10 +1,12 @@
-import "@/assets/scss/style.scss";
+import '@/assets/scss/style.scss';
 
-import { HouseListings } from "./UI/Homepage";
+import { Hero, HouseListings, Navbar } from './UI';
 
 const App = () => {
     return (
         <div>
+            <Navbar />
+            <Hero />
             <HouseListings />
         </div>
     );

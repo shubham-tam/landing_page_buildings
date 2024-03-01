@@ -1,0 +1,8 @@
+@import '../../../assets/scss/abstracts/index';
+
+.home_hero {
+    height: calc(100vh - 8rem);
+    display: grid;
+    grid-template-columns: 30rem auto;
+    font-size: 3rem;
+}

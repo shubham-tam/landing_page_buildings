@@ -1,15 +1,76 @@
 @use './colors' as *;
 
+@mixin button_padding {
+    padding: 1rem 3.2rem;
+}
+
+@mixin next_img_gradient {
+    background-image: linear-gradient(#be8444 25%, 75%, #fff);
+}
+
+@mixin btn_gradient {
+    background-image: linear-gradient(to right, #c6945e 0%, #dca569 51%, #e6c096 100%);
+}
+
 @mixin cursor_pointer {
     cursor: pointer;
 }
 
-@mixin font_karla($value) {
+@mixin font_karla($value, $size) {
     font-family: 'Karla', sans-serif;
     font-weight: $value;
+    font-size: $size;
 }
 
 @mixin font_julius($value) {
     font-family: 'Julius Sans One', sans-serif;
     font-weight: $value;
+}
+
+@mixin button_primary {
+    @include button_padding();
+    @include font_karla(400, 1.6rem);
+    @include btn_gradient();
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: $white;
+
+    &:hover {
+        background-position: top center;
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+@mixin button_secondary {
+    @include button_padding();
+    position: relative;
+    @include btn_gradient();
+    @include font_karla(400, 1.6rem);
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: #3c3c3c;
+        border-radius: 0.4rem;
+        border: 1px solid #c6945e;
+    }
+
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+    &:hover {
+        background-position: top center;
+        color: $white;
+        text-decoration: none;
+    }
 }

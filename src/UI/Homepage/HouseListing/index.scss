@@ -1,0 +1,145 @@
+@import '../../../assets/scss/abstracts/index';
+
+.home_top-locations {
+    height: 100vh;
+    background-color: $brown;
+    color: $white;
+    padding: 4rem 2.4rem;
+
+    &__header {
+        &__heading {
+            text-align: center;
+            font-size: 2.8rem;
+            line-height: 4.2rem;
+            @include font_julius(400);
+        }
+        &__message {
+            text-align: center;
+            line-height: 2.4rem;
+            margin: 8rem 25.5rem;
+            text-wrap: pretty;
+            @include font_karla(300, 1.6rem);
+        }
+
+        &__view-all-locations {
+            margin-right: 10.8rem;
+            margin-top: -5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            @include font_karla(300, 1.6rem);
+        }
+    }
+
+    &__list {
+        min-width: 100vh;
+        overflow-x: hidden;
+        display: grid;
+        place-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 1.6rem;
+        margin: 2rem;
+
+        &__listing_detail {
+            position: absolute;
+            top: 0;
+            z-index: 99;
+            margin: 1.2rem;
+
+            &__projects {
+                @include font_karla(400, 1.4rem);
+            }
+            &__name {
+                @include font_karla(700, 2rem);
+            }
+        }
+
+        img {
+            object-fit: cover;
+            position: relative;
+        }
+
+        .home_top-locations__list__2 {
+            width: 27.9rem;
+            height: 30.4rem;
+        }
+
+        .home_top-locations__list__0,
+        .home_top-locations__list__4 {
+            width: 27.9rem;
+            height: 40.8rem;
+        }
+
+        .home_top-locations__list__1,
+        .home_top-locations__list__3 {
+            width: 25.7rem;
+            height: 35.2rem;
+        }
+
+        &__view-all-projects {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 1.2rem;
+            @include font_karla(700, 1.7rem);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__button {
+            @include next_img_gradient();
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 5rem;
+            height: 5rem;
+            border: none;
+            border-top-left-radius: 1.7rem;
+        }
+    }
+
+    &__list-buttons {
+        position: absolute;
+        right: 10.8rem;
+
+        button {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: none;
+            margin-left: 1.2rem;
+        }
+    }
+}
+
+.fade-right_to_left {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInRight 1s ease forwards;
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-left_to_right {
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideInLeft 2s ease forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

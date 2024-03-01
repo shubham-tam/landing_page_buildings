@@ -1,0 +1,54 @@
+@import '../../../assets/scss/abstracts/index';
+
+.navbar {
+    height: 8rem;
+    background-color: #302f2ebe;
+
+    &__logo {
+        width: 4.5rem;
+        aspect-ratio: 1/1;
+        margin-left: 10.8rem;
+    }
+
+    &__routes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        position: absolute;
+        top: 1.6rem;
+        width: 100%;
+        z-index: 9;
+
+        &__center {
+            display: flex;
+            justify-content: center;
+            font-size: 2.8rem;
+            list-style: none;
+            gap: 7rem;
+            color: white;
+            line-height: 2.7rem;
+            @include font_julius(600);
+        }
+
+        &__buttons {
+            text-align: right;
+            margin-right: 10.7rem;
+
+            &__secondary {
+                @include button_secondary();
+                margin-right: 2rem;
+            }
+            &__primary {
+                @include button_primary();
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        height: 8rem;
+        width: 100vw;
+        object-fit: cover;
+        opacity: 0.1;
+    }
+}
