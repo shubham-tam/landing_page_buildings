@@ -5,4 +5,51 @@
     display: grid;
     grid-template-columns: 30rem auto;
     font-size: 3rem;
+    background-color: white;
+
+    &__left {
+        writing-mode: tb;
+        transform: rotate(180deg);
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 5.3rem;
+        margin-top: 7.3rem;
+        @include font_karla(600, 4rem);
+        @include hero_msg_gradient();
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        letter-spacing: 0.2rem;
+    }
+
+    &__right {
+        margin-top: 12px;
+
+        &__img {
+            height: 50rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &__message {
+            font-size: 4rem;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 10.8rem;
+            gap: 3rem;
+
+            &__right {
+                color: $brown;
+                @include font_julius(bolder, 2.8rem);
+
+                p {
+                    @include font_karla(400, 1.6rem);
+                    width: 52rem;
+                    color: #444444;
+                    line-height: 2.4rem;
+                    margin-top: 1.2rem;
+                }
+            }
+        }
+    }
 }

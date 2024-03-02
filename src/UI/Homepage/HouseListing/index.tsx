@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import { IconArrowNarrowRight, IconChevronRight, IconChevronLeft } from '@tabler/icons-react';
 
 import './index.scss';
@@ -6,41 +6,33 @@ import './index.scss';
 import { BUILDING_LISTINGS } from '@/constants';
 
 export const HouseListings = () => {
-    const houseListingArray = BUILDING_LISTINGS.slice(0, 5);
-
-    const [isLoadNext, setIsLoadNext] = useState(false);
-    const [listings, setListings] = useState(BUILDING_LISTINGS.slice(0, 5));
+    const sliderRef = useRef<HTMLDivElement | null>(null);
 
     const handleNext = () => {
-        const currentIndex = houseListingArray?.length || 0;
-        const nextSlice = BUILDING_LISTINGS.slice(currentIndex, currentIndex + 5);
-        setIsLoadNext(true);
-        setListings(nextSlice);
+        if (sliderRef.current) {
+            sliderRef.current.scrollBy(1440, 0);
+        }
     };
 
     const handlePrevious = () => {
-        const currentIndex = houseListingArray?.length || 0;
-        const nextSlice = BUILDING_LISTINGS.slice(currentIndex - 5, currentIndex);
-        setIsLoadNext(false);
-        setListings(nextSlice);
+        if (sliderRef.current) {
+            sliderRef.current.scrollBy(-1440, 0);
+        }
     };
 
     return (
         <>
             <div className="home_top-locations">
                 <HouseListingsHeader />
-                <div className="home_top-locations__list">
-                    {listings?.map((building, index) => {
+                <div className="home_top-locations__list" ref={sliderRef}>
+                    {BUILDING_LISTINGS?.map((building, index) => {
                         return (
-                            <div
-                                key={index}
-                                className={isLoadNext ? 'fade-right_to_left' : 'fade-left_to_right'}
-                            >
+                            <div key={index} className="home_top-locations__list__image_carousel">
                                 <HouseListingDetailInfo building={building} />
                                 <img
                                     src={building?.imageUrl}
                                     alt={building?.name}
-                                    className={`home_top-locations__list__${index}`}
+                                    className={`image_${index}`}
                                 />
                                 <HouseListingDetaiButton building={building} />
                             </div>

@@ -2,7 +2,7 @@
 
 .navbar {
     height: 8rem;
-    background-color: #302f2ebe;
+    background-color: #302f2e;
 
     &__logo {
         width: 4.5rem;
@@ -22,12 +22,18 @@
         &__center {
             display: flex;
             justify-content: center;
-            font-size: 2.8rem;
             list-style: none;
             gap: 7rem;
-            color: white;
+            color: $white;
             line-height: 2.7rem;
-            @include font_julius(600);
+            @include font_julius(600, 2.8rem);
+
+            li {
+                @include btn_gradient();
+                color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
         }
 
         &__buttons {
