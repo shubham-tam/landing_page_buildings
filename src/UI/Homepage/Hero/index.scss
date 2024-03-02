@@ -22,13 +22,47 @@
         letter-spacing: 0.2rem;
     }
 
+    &__searchbox {
+        position: absolute;
+        width: 43rem;
+        height: 16rem;
+        background: #995305ad;
+        left: 20rem;
+        top: 18rem;
+        padding: 2.4rem 2rem;
+
+        &__heading {
+            color: $white;
+            @include font_julius(400, 2.4rem);
+            line-height: 3.6rem;
+        }
+
+        &__input {
+            @include font_karla(400, 1.4rem);
+            width: 26rem;
+            margin-top: 2.4rem;
+            padding: 1.2rem;
+            border-radius: 0.4rem;
+            outline: none;
+            border: none;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: 23rem;
+            vertical-align: middle;
+            background-image: url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20class=%22icon%20icon-tabler%20icon-tabler-search%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20stroke-width=%222%22%20stroke=%22currentColor%22%20fill=%22none%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M10%2010m-7%200a7%207%200%201%200%2014%200a7%207%200%201%200%20-14%200%22%20/%3E%3Cpath%20d=%22M21%2021l-6%20-6%22%20/%3E%3C/svg%3E);
+        }
+    }
+
     &__right {
         margin-top: 12px;
+        display: flex;
+        flex-direction: column;
 
         &__img {
             height: 50rem;
-            width: 100%;
+            width: 97%;
             object-fit: cover;
+            margin-left: auto;
         }
 
         &__message {
@@ -38,9 +72,51 @@
             margin-right: 10.8rem;
             gap: 3rem;
 
+            &__left {
+                text-align: center;
+                &__service_box {
+                    width: 40rem;
+                    height: 28rem;
+                    background-color: $white;
+                    margin-top: -18rem;
+                    box-shadow: 1px 1px 23px 0px #0000001a;
+                    display: grid;
+                    place-content: center;
+                    padding: 0 1.7rem;
+
+                    &__msg-pitch {
+                        text-align: center;
+                        margin-bottom: 2rem;
+                    }
+
+                    .hand-shake {
+                        width: 7.2rem;
+                        aspect-ratio: 1/1;
+                    }
+
+                    .service_pitch {
+                        @include font_julius(400, 1.6rem);
+
+                        &__strong {
+                            @include font_julius(600, 1.6rem);
+                        }
+                    }
+                    .service_message {
+                        @include font_karla(300, 1.6rem);
+                        text-align: center;
+                    }
+                }
+                button {
+                    margin-top: 2rem;
+                    @include button_padding();
+                    @include button_primary();
+                }
+            }
+
             &__right {
                 color: $brown;
                 @include font_julius(bolder, 2.8rem);
+                margin-left: 10.8rem;
 
                 p {
                     @include font_karla(400, 1.6rem);
